@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Commentaire extends Model
 {
     use HasFactory;
+
+
+    protected $table = "commentaires";
+
+    public function Classes()
+    {
+        return $this->belongsTo(Classe::class);
+    }
+
+
+
 }

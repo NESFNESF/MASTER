@@ -14,4 +14,7 @@ class ClasseEnseignant extends Model
         'idC'
     ];
 
+
+    protected $table = "classe_enseignants";
+
 }
