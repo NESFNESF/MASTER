@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,8 +45,57 @@ Route::post('storeclasse',[App\Http\Controllers\Administrateur::class,'storeclas
 
 Route::post('storeens',[App\Http\Controllers\Administrateur::class,'storeens'])->name('storeens');
 
+Route::get('nesf', function () {
+    return view('auth.creation_super_admi');
+})->name('nesf');
 //ENSEIGNANT
 
+Route::get('Ajout_lecon', function () {
+    return view('ens.ajoutlecon');
+})->name('ajoutlecon');
 
+
+Route::post('storelecon',[App\Http\Controllers\Enseignant::class,'storelecon'])->name('storelecon');
+Route::get('classe/{id}' , [App\Http\Controllers\Enseignant::class , 'cours'])->name('cours');
+Route::get('classes/{id}', function ($id) {
+
+    $cours = DB::table('cours')->where('idC',$id)->get();
+    $classe = DB::table('classes')->find($id);
+
+    if (count($cours)==0){
+        echo 'VOUS N\'AVEZ PAS ENTRÉ DE LEÇONS POUR CETTE CLASSE !';
+
+    }
+    else{
+         return view('ens.cours',compact('cours','classe'));
+    }
+
+})->name('cour');
+
+Route::get('lecon/{id}', function ($id) {
+
+    $cours = DB::table('cours')->find($id);
+    return view('ens.lecon',compact('cours'));
+
+})->name('lecon');
+Route::get('{fichier}', function ($fichier) {
+    echo asset($fichier);
+})->name('pdf');
+
+Route::get('evaluation/{id}', function ($id) {
+
+    $cours = DB::table('evaluations')->where('idC',$id)->get();
+    return view('ens.evaluation',compact('cours'));
+
+})->name('evaluation');
+
+Route::get('forum/{id}', function ($id) {
+
+    $commentaires = DB::table('commentaires')->where('idC',$id)->get();
+    return view('ens.forum',compact('commentaires','id'));
+
+})->name('forum');
+
+Route::post('storecommen',[App\Http\Controllers\Enseignant::class,'storecommen'])->name('storecommen');
 
 //ETUDIANT

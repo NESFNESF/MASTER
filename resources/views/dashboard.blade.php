@@ -70,42 +70,84 @@
 
 
 
-     <li><a href="{{ route('dashboard') }}" class="trigger">Accueil</a> </li>
+    <li><a href="{{ route('dashboard') }}" class="trigger">Accueil</a> </li>
 
-     @if (Auth::user()->type_user == 1)
-     <li><a class="trigger" href="{{ route('listeens') }}"> Enseignants<i class="fa fa-angle-down"></i></a>
-        <ul class="submenu">
+    @if (Auth::user()->type_user == 1)
+    <li><a class="trigger" href="{{ route('listeens') }}"> Enseignants<i class="fa fa-angle-down"></i></a>
+       <ul class="submenu">
 
-        <li><a href="{{ route('ajoutens') }}">Ajouter un enseignant</a></li>
-        <li  ><a href="{{ route('listeens') }}"  >Liste des enseignants</a> </li>
+       <li><a href="{{ route('ajoutens') }}">Ajouter un enseignant</a></li>
+       <li  ><a href="{{ route('listeens') }}"  >Liste des enseignants</a> </li>
 
-        </ul>
-        </li>
+       </ul>
+       </li>
 
-        <li><a class="trigger" href="{{ route('listeclasse') }}">Classes<i class="fa fa-angle-down"></i></a>
-            <ul class="submenu">
+       <li><a class="trigger" href="{{ route('listeclasse') }}">Classes<i class="fa fa-angle-down"></i></a>
+           <ul class="submenu">
 
-            <li><a href="{{ route('ajoutclasse') }}">Ajouter une classe</a></li>
-            <li  ><a href="{{ route('listeclasse') }}"  >Liste des classes</a> </li>
+           <li><a href="{{ route('ajoutclasse') }}">Ajouter une classe</a></li>
+           <li  ><a href="{{ route('listeclasse') }}"  >Liste des classes</a> </li>
+
+           </ul>
+           </li>
+
+
+
+
+
+    @endif
+
+    @if (Auth::user()->type_user == 2)
+    <li><a class="trigger" href="#"> Leçons<i class="fa fa-angle-down"></i></a>
+       <ul class="submenu">
+
+        <li><a href="{{ route('ajoutlecon') }}">Ajouter une leçon</a></li>
+        <li ><a href="#"  >Liste des leçons<i class="fa fa-angle-right"></i></a>
+        <ul class="sub_menu">
+
+            @foreach (Auth::user()->classes()->get() as $class )
+
+            <li><a href="{{ route('cour',$class->id) }}">{{ $class->nom }}</a></li>
+
+            @endforeach
+
 
             </ul>
-            </li>
 
 
+    </li>
+       </ul>
+       </li>
 
-     @endif
-
-
-
-    <li><a class="trigger" href="{{ route('profile.show') }}"> {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></a>
+       <li><a class="trigger" href="#"> Forums<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
 
-        <li><a href="{{ route('profile.show') }}">Mon profil</a></li>
-        <li  onclick="event.preventDefault();  this.closest('form').submit();" ><a href="{{ route('logout') }}"  >Déconnection</a> </li>
+             @foreach (Auth::user()->classes()->get() as $class )
+
+             <li><a href="{{ route('forum',$class->id) }}">Forum {{ $class->nom }}</a></li>
+
+             @endforeach
+
 
         </ul>
         </li>
 
+
+
+
+    @endif
+
+
+
+
+   <li><a class="trigger" href="{{ route('profile.show') }}"> {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></a>
+       <ul class="submenu">
+
+       <li><a href="{{ route('profile.show') }}">Mon profil</a></li>
+       <li  onclick="event.preventDefault();  this.closest('form').submit();" ><a href="{{ route('logout') }}"  >Déconnection</a> </li>
+
+       </ul>
+       </li>
 
 
 

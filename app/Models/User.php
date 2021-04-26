@@ -62,4 +62,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function classes(){
+
+        return $this->belongsToMany(Classe::class, 'classe_enseignants', 'idU', 'idC');
+    }
 }

@@ -36,18 +36,6 @@ class Administrateur extends Controller
     {
 
 
-/*
-        $user = new  User();
-
-        $user->name = $request->input('name');
-        $user->prenom = $request->input('prenom');
-        $user->tel = $request->input('tel');
-        $user->email = $request->input('email');
-        $user->login = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->type_user = $request->input('type_user');
-
-        $user->save();*/
         User::create([
             'name' => $request->input('name'),
             'prenom' => $request->input('prenom'),

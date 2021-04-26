@@ -9,6 +9,18 @@ class Cours extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idU',
+        'idC',
+        'titre',
+        'indicateur',
+        'situation',
+        'contenu',
+        'unite',
+        'fichier'
+
+    ];
+
     protected $table = "cours";
 
 
@@ -28,5 +40,6 @@ class Cours extends Model
     {
         return $this->has20(Evaluation::class);
     }
+
 
 }

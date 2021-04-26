@@ -7,7 +7,7 @@
     <div class="breadcrumb_wrap" data-stellar-background-ratio="0.3" style="background: url(images/slider_inclass.jpg); background-attachment: fixed; background-position: 50% 50%;">
     <div class="breadcrumb_wrap_inner">
     <div class="container">
-    <h1>Nouvelle classe</h1>
+    <h1>Nouveau enseignant</h1>
     <ul class="breadcrumbs">
     <li><a href="index.html">Accueil</a> /</li>
     <li>Ajouter une classe</li>

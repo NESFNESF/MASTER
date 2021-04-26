@@ -18,11 +18,14 @@
 
     <br>
     <br>
+@php
+     use App\Models\User;
+@endphp
 
     @foreach (DB::table('users')->where('type_user',2)->get() as $use )
 
     <div class="wrapper_faculty">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="">
         <div class="faculty_block">
 
         <div class="science">
@@ -31,7 +34,9 @@
         <h5>{{ $use->prenom }}</h5>
         <h5>{{ $use->tel }}</h5>
         <h5>{{ $use->email }}</h5>
-        <p>Classes : classes </p>
+        <p>Classes : @foreach ( User::find($use->id)->classes()->get() as $class)
+            {{ $class->nom }} ,
+        @endforeach </p>
             </div>
         </div>
         </div>

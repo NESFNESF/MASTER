@@ -9,6 +9,16 @@ class Evaluation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idC',
+        'description',
+        'qcm1',
+        'qcm2',
+        'qcm3',
+        'qcm4',
+        'reponse'
+    ];
+
     protected $table = "evaluations";
 
     public function Cours()

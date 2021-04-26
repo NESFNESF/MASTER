@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Classe extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'description'
+    ];
 
     protected $table = "classes";
 
@@ -15,9 +19,10 @@ class Classe extends Model
     {
         return $this->hasMany(Eleve::class);
     }
-    public function Enseignants()
+    public function enseignants()
     {
-        return $this->belongsToMany(User::class,'ClasseEnseignant');
+        return $this->belongsToMany(User::class,'classe_enseignants','idC','idU');
+
     }
     public function Cours()
     {
