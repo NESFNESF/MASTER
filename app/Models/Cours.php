@@ -26,7 +26,7 @@ class Cours extends Model
 
     public function Eleves()
     {
-        return $this->belongsToMany(Eleve::class,'CoursEleve');
+        return $this->belongsToMany(Cours::class,'CoursEleve','idCo','idU');
     }
     public function Enseignants()
     {

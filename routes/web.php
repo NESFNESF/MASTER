@@ -99,3 +99,44 @@ Route::get('forum/{id}', function ($id) {
 Route::post('storecommen',[App\Http\Controllers\Enseignant::class,'storecommen'])->name('storecommen');
 
 //ETUDIANT
+
+
+Route::post('storeetd',[App\Http\Controllers\Etudiant::class,'storeet'])->name('register_eleve');
+
+Route::get('classe/{id}', function ($id) {
+
+    $cours = DB::table('cours')->where('idC',$id)->get();
+    $classe = DB::table('classes')->find($id);
+
+
+    return view('Etudiant.listecours',compact('cours','classe'));
+
+
+})->name('liste_lecon_et');
+
+Route::get('lecon_et/{id}', function ($id) {
+
+    $cours = DB::table('cours')->find($id);
+    $classe = DB::table('classes')->find($id);
+    return view('Etudiant.cours',compact('cours','classe'));
+
+})->name('lecon_et');
+
+
+Route::get('evaluations/{id}', function ($id) {
+
+    $cours = DB::table('evaluations')->where('idC',$id)->get();
+    return view('Etudiant.evaluation',compact('cours'));
+
+})->name('evaluations');
+
+
+Route::post('storeeval/{id}',[App\Http\Controllers\Etudiant::class,'storeeval'])->name('storeeval');
+
+
+
+Route::get('resultat', function () {
+    return view('Etudiant.resultat');
+})->name('resultat');
+
+

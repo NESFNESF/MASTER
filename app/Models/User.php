@@ -67,4 +67,6 @@ class User extends Authenticatable
 
         return $this->belongsToMany(Classe::class, 'classe_enseignants', 'idU', 'idC');
     }
+
+
 }

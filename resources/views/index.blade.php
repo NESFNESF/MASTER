@@ -136,6 +136,17 @@
 
      @endif
 
+     @if (Auth::user()->type_user == 3)
+
+     <li><a href="{{ route('liste_lecon_et',DB::table('classe_eleves')->where('idU',Auth::user()->id)->value('idC')) }}" class="trigger">Mes leçons</a> </li>
+     <li><a href="{{ route('forum',DB::table('classe_eleves')->where('idU',Auth::user()->id)->value('idC')) }}" class="trigger">Forum</a> </li>
+
+
+
+
+
+     @endif
+
 
 
 

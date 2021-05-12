@@ -13,7 +13,7 @@ class Eleve extends Model
 
     public function Cours()
     {
-        return $this->belongsToMany(Cours::class,'CoursEleve');
+        return $this->belongsToMany(Cours::class,'CoursEleve','idU','idCo');
     }
     public function Classes()
     {

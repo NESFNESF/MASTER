@@ -18,6 +18,14 @@
 
     <br>
     <br>
+    @if (count($cours)==0)
+
+
+    <div class="wrapper_faculty">
+       <h1>AUCUNS COURS POUR LE MOMENT</h1>
+    </div>
+
+    @else
 
     @foreach ($cours as $cour )
 
@@ -45,6 +53,8 @@
     </div>
 
     @endforeach
+
+    @endif
 
 
 

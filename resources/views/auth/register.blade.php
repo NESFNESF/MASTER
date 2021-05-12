@@ -6,7 +6,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register_eleve') }}">
             @csrf
 
             <div>
@@ -22,6 +22,21 @@
                 <x-jet-label for="tel" value="{{ __('Téléphone') }}" />
                 <x-jet-input id="tel" class="block mt-1 w-full" type="text" name="tel" :value="old('name')" required autofocus />
             </div>
+
+            <div class="mt-4">
+                <x-jet-label for="tel" value="{{ __('Choisir une classe') }}" />
+                <select name="idC"  >
+
+                    @foreach ( DB::table('classes')->get()  as $etab )
+
+
+                        <option value={{ $etab ->id }}>{{ $etab->nom }}</option>
+
+
+                    @endforeach
+                   </select>
+            </div>
+
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />

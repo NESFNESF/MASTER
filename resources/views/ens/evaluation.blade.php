@@ -43,16 +43,21 @@
             <br>
             <div class="row">
                 <div class="col">
-                  <h6> a ) {{ $eval->qcm1 }} </h6><input  type="radio" name=@php echo "test".$i; @endphp  name=@php echo "q1".$i; @endphp   />
+                  <h6> a ) {{ $eval->qcm1 }} </h6>
                 </div>
                 <div class="col">
-                    <h6>b ) {{ $eval->qcm1 }}</h6> <input  type="radio" name=@php echo "test".$i; @endphp name=@php echo "q2".$i; @endphp  />
+                    <h6>b ) {{ $eval->qcm2 }}</h6>
                 </div>
                 <div class="col">
-                    <h6>c ) {{ $eval->qcm1 }}</h6> <input  type="radio"  name=@php echo "test".$i; @endphp name=@php echo "q3".$i; @endphp />
+                    <h6>c ) {{ $eval->qcm3 }}</h6>
                 </div>
                 <div class="col">
-                    <h6>d ) {{ $eval->qcm1 }}</h6> <input  type="radio" name=@php echo "test".$i; @endphp name=@php echo "q4".$i; @endphp  />
+                    <h6>d ) {{ $eval->qcm4 }}</h6>
+                </div>
+                <div class="col">
+                    <div class="course_count">
+                        <span class="text-warning">Réponse  <span>: {{ $eval->reponse }}</span>
+                        </div>
                 </div>
               </div>
             </div>
