@@ -9,7 +9,7 @@
     <div class="container">
     <h1>ÉVALUATION</h1>
     <ul class="breadcrumbs">
-    <li><a href="index.html">Accueil</a> /</li>
+    <li><a href="{{ route('dashboard') }}">Accueil</a> /</li>
     <li>Je m'évalue</li>
     </ul>
     </div>
@@ -172,7 +172,7 @@
 
 
     @if ($note < 50)
-    <a  href="{{ route('lecon_et') }}" class="btn btn_contact ">Vous avez échoué : recommencé la leçon  <i class="fa fa-check"></i></a>
+    <a  href="{{ route('lecon_et',$cours[0]->idC) }}" class="btn btn_contact ">Vous avez échoué : recommencé la leçon  <i class="fa fa-check"></i></a>
 
     @else
 

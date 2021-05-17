@@ -55,7 +55,14 @@ Route::get('Ajout_lecon', function () {
 })->name('ajoutlecon');
 
 
+Route::get('modifier_lecon/{id}', function ($id) {
+    $cours = DB::table('cours')->find($id);
+    return view('ens.modifierlecon',compact('cours'));
+})->name('modifierlecon');
+
 Route::post('storelecon',[App\Http\Controllers\Enseignant::class,'storelecon'])->name('storelecon');
+
+Route::post('storeleconmodif',[App\Http\Controllers\Enseignant::class,'storeleconmodif'])->name('storeleconmodif');
 Route::get('classe/{id}' , [App\Http\Controllers\Enseignant::class , 'cours'])->name('cours');
 Route::get('classes/{id}', function ($id) {
 
@@ -63,7 +70,7 @@ Route::get('classes/{id}', function ($id) {
     $classe = DB::table('classes')->find($id);
 
     if (count($cours)==0){
-        echo 'VOUS N\'AVEZ PAS ENTRÉ DE LEÇONS POUR CETTE CLASSE !';
+        return view('ens.ajoutlecon');
 
     }
     else{
@@ -78,8 +85,8 @@ Route::get('lecon/{id}', function ($id) {
     return view('ens.lecon',compact('cours'));
 
 })->name('lecon');
-Route::get('{fichier}', function ($fichier) {
-    echo asset($fichier);
+Route::get('attestation', function () {
+    return view('Etudiant.pdf');
 })->name('pdf');
 
 Route::get('evaluation/{id}', function ($id) {

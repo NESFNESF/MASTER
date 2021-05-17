@@ -41,7 +41,13 @@
             <div class="info_wrapper">
             <div class="info_head">
             <h4>INDICATEURS DE COMPÉTENCE</h4>
-            <p>{{ $cours->indicateur }}</p>
+
+            @foreach (explode('$',$cours->indicateur) as $ligne)
+            <p>- {{ $ligne }}</p>
+            @endforeach
+
+
+
             </div>
             </div>
             <div class="info_wrapper">
@@ -63,14 +69,14 @@
                 <div class="info_head">
                 <h4>SUPPORT NUMÉRIQUE </h4>
                 </div>
-                <p><a href="{{ route('pdf',$cours->fichier)}}">
+                <p>
 
-                <img src="{{ asset('pdf.jpeg') }}" alt="" width="75" height="80">
-                </a></p>
+                <embed src="{{ asset('Cours/'.$cours->fichier) }}" width="800" height="500"  type="application/pdf"/>
+
+              </p>
                 <h6>{{ $cours->titre }}</h6>
 
                 </div>
-
             </div>
             </div>
             </div>

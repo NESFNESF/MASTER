@@ -41,7 +41,11 @@
         <h5>Auteur : {{  DB::table('users')->find($cour->idU)->name }}</h5>
         <p>Classe :  {{ $classe->nom }}
         </p>
-     <a href="{{ route('lecon',$cour->id) }}"> voir la leçon</a>
+     <a href="{{ route('lecon',$cour->id) }}"> Voir la leçon</a>
+     <br>
+
+     <a href="{{ route('modifierlecon',$cour->id) }}"> Modifier la leçon la leçon</a>
+
             </div>
         </div>
         </div>

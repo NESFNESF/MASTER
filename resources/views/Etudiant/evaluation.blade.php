@@ -9,7 +9,7 @@
     <div class="container">
     <h1>ÉVALUATION</h1>
     <ul class="breadcrumbs">
-    <li><a href="index.html">Accueil</a> /</li>
+    <li><a href="{{ route('dashboard') }}">Accueil</a> /</li>
     <li>Je m'évalue</li>
     </ul>
     </div>
