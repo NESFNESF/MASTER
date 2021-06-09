@@ -176,7 +176,7 @@
 
     @else
 
-    <a  href="{{ route('pdf') }}"  class="btn btn_contact ">Félicitation vous avez réussi : télécharger votre attestation  <i class="fa fa-check"></i></a>
+    <a  href="{{ route('pdf',$cours[0]->idC) }}"  class="btn btn_contact ">Félicitation vous avez réussi : télécharger votre attestation  <i class="fa fa-check"></i></a>
 
     @endif
 

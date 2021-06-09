@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClasseEleve;
+use App\Models\Cours;
 use App\Models\CoursEleve;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -45,6 +46,15 @@ class Etudiant extends Controller
         $cours = DB::table('evaluations')->where('idC',$id)->get();
 
         return view('Etudiant.resultat',compact('cours','request'));
+
+    }
+    public function attestation($id){
+
+        $cours = Cours::find($id);
+        $ens = DB::table('users')->where('id',$cours->idU)->get();
+
+
+        return view('Etudiant.pdf',compact('cours','ens'));
 
     }
 

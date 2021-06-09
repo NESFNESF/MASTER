@@ -85,9 +85,7 @@ Route::get('lecon/{id}', function ($id) {
     return view('ens.lecon',compact('cours'));
 
 })->name('lecon');
-Route::get('attestation', function () {
-    return view('Etudiant.pdf');
-})->name('pdf');
+Route::get('attestation/{id}', [App\Http\Controllers\Etudiant::class,'attestation'])->name('pdf');
 
 Route::get('evaluation/{id}', function ($id) {
 
@@ -138,12 +136,6 @@ Route::get('evaluations/{id}', function ($id) {
 })->name('evaluations');
 
 
-Route::post('storeeval/{id}',[App\Http\Controllers\Etudiant::class,'storeeval'])->name('storeeval');
-
-
-
-Route::get('resultat', function () {
-    return view('Etudiant.resultat');
-})->name('resultat');
+Route::post('resultats/{id}',[App\Http\Controllers\Etudiant::class,'storeeval'])->name('storeeval');
 
 
