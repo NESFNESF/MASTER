@@ -54,8 +54,10 @@
             <div class="info_head">
             <h4>SITUATION DE VIE</h4>
             </div>
-            <p>{{ $cours->situation }}</p>
+            <div class="course_info">
 
+            <p>{{ $cours->situation }}</p>
+            </div>
             </div>
             <div class="info_wrapper">
             <div class="info_head">
@@ -87,7 +89,7 @@
             <div class="mt_5">
 
 
-             <a href="{{ route('evaluation',$cours->id) }}" class="btn hookup_btn">Je m'évalue <i class="fa fa-reply"></i></a>
+             <a href="{{ route('evaluation',$cours->id) }}" class="btn hookup_btn">Evaluation <i class="fa fa-reply"></i></a>
             </div>
 
 

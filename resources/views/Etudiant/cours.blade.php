@@ -40,21 +40,28 @@
             <div class="info_wrapper">
             <div class="info_head">
             <h4>INDICATEURS DE COMPÉTENCE</h4>
-            <p>{{ $cours->indicateur }}</p>
+
+
+            @foreach (explode('$',$cours->indicateur) as $ligne)
+            <p>- {{ $ligne }}</p>
+            @endforeach
+
+
+
             </div>
             </div>
             <div class="info_wrapper">
             <div class="info_head">
             <h4>SITUATION DE VIE</h4>
             </div>
-            <p>{{ $cours->situation }}</p>
+            <p class="text-justify">{{ $cours->situation }}</p>
 
             </div>
             <div class="info_wrapper">
             <div class="info_head">
             <h4>CONTENU DE LA LEÇON</h4>
             </div>
-            <p>{{ $cours->contenu }}</p>
+            <p class="text-justify" >{{ $cours->contenu }}</p>
 
             </div>
 

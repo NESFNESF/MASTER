@@ -23,8 +23,10 @@
 
 
     <div class="">
-    <h3>Entrer les informations de l'enseignant</h3>
-    <p></p>
+    <h3> Entrer les informations de l enseignant </h3>
+    <p>
+
+    </p>
     <div class="contact_form">
     <form method="POST" action="{{ route('storeens') }}">
         @csrf

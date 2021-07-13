@@ -161,14 +161,8 @@ class Enseignant extends Controller
         }
 
 
-        $cours = DB::table('cours')->where('idC',$id)->get();
-    $classe = DB::table('classes')->find($id);
-
-
-         return view('ens.cours',compact('cours','classe'));
-
-
-    }
+        return redirect()->route('dashboard')
+        ->with('succes','Nouvel enseignant crée !!');    }
 
 
 }
